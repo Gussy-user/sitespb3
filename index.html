@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профессиональная видеосъемка для бизнеса в Санкт-Петербурге</title>
+    <style>
+        :root {
+            --accent-light: #8EE4AF;
+            --accent-medium: #EDF5E1;
+            --accent-bright: #5CDB95;
+            --bg-gradient: linear-gradient(135deg, #2c3e50 0%, #1a1a1a 100%);
+            --text-light: #ffffff;
+            --text-dark: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            background: var(--bg-gradient);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Навигация */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent-bright);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-bright);
+        }
+        
+        .cta-button {
+            background: var(--accent-bright);
+            color: var(--text-dark);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+        }
+        
+        /* Герой секция */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        
+        .hero-content {
+            max-width: 650px;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .benefits {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .benefit-item {
+            flex: 1 1 200px;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        
+        /* Секции */
+        section {
+            padding: 80px 0;
+        }
+        
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--accent-medium);
+        }
+        
+        /* Услуги */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-light);
+        }
+        
+        .pricing {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 50px;
+        }
+        
+        .price-plan {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 10px;
+            flex: 1 1 300px;
+            max-width: 350px;
+        }
+        
+        .price-plan h3 {
+            color: var(--accent-bright);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 20px 0;
+            color: var(--accent-light);
+        }
+        
+        /* Портфолио */
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: var(--text-light);
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--accent-bright);
+            color: var(--text-dark);
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        
+        .portfolio-item:hover .item-overlay {
+            transform: translateY(0);
+        }
+        
+        /* О себе */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .tech-list {
+            margin-top: 20px;
+        }
+        
+        /* Этапы работы */
+        .work-steps {
+            display: flex;
+            flex-direction: column;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .step {
+            display: flex;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .step-number {
+            flex: 0 0 50px;
+            height: 50px;
+            background: var(--accent-bright);
+            color: var(--text-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-right: 20px;
+        }
+        
+        .step-content {
+            flex: 1;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed var(--accent-light);
+        }
+        
+        /* Отзывы */
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .client-logos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .client-logo {
+            opacity: 0.7;
+            transition: opacity 0.3s;
+            height: 60px;
+        }
+        
+        .client-logo:hover {
+            opacity: 1;
+        }
+        
+        /* Блог */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .blog-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .blog-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .blog-content {
+            padding: 20px;
+        }
+        
+        /* Контакты */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            color: var(--text-light);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent-bright);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+        }
+        
+        /* CTA блоки */
+        .cta-section {
+            text-align: center;
+            padding: 60px 0;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        /* Футер */
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .about-content,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .price-plan {
+                width: 100%;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">VIDEOPROSPB</div>
+                <ul class="nav-links">
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#portfolio">Портфолио</a></li>
+                    <li><a href="#about">Обо мне</a></li>
+                    <li><a href="#process">Этапы работы</a></li>
+                    <li><a href="#testimonials">Отзывы</a></li>
+                    <li><a href="#blog">Блог</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+                <a href="#contacts" class="cta-button">Обсудить проект</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Герой секция -->
+    <section class="hero">
+        <video class="hero-video" autoplay muted loop>
+            <!-- Здесь будет ваше фоновое видео -->
+            <source src="#" type="video/mp4">
+        </video>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Видео, которое работает на ваш бизнес в Санкт-Петербурге</h1>
+                <p>Профессиональная видеосъемка для коммерции и бизнеса. Превращаем ваши идеи в эффективный визуальный контент.</p>
+                <a href="#contacts" class="cta-button">Заказать съёмку</a>
+                
+                <div class="benefits">
+                    <div class="benefit-item">
+                        <h3>Опыт</h3>
+                        <p>Более 7 лет создания видео для бизнеса</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3>Качество</h3>
+                        <p>Профессиональное оборудование и подход</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3>Результат</h3>
+                        <p>Видео, которое приносит прибыль</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services">
+        <div class="container">
+            <h2>Услуги</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Видеосъёмка для бизнеса</h3>
+                    <p>Корпоративные фильмы, презентации компаний, видео для сайтов и внутреннего использования.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Рекламные ролики и презентации</h3>
+                    <p>Создание эффективных рекламных видео для ТВ, YouTube и digital-продвижения.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Видео для социальных сетей</h3>
+                    <p>Привлекательный контент для Instagram, Facebook, VK и других платформ.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Вертикальные видео для соц. сетей</h3>
+                    <p>Специализированный контент для Stories, Reels, TikTok и Shorts.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Интервью, подкасты, образовательный контент</h3>
+                    <p>Профессиональная съемка интервью, запись подкастов и создание обучающих материалов.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Съёмка мероприятий</h3>
+                    <p>Охват конференций, открытий, выставок и корпоративных событий.</p>
+                </div>
+            </div>
+            
+            <div class="pricing">
+                <div class="price-plan">
+                    <h3>Базовый</h3>
+                    <p>Идеально для небольших проектов и стартапов</p>
+                    <div class="price">от 25 000 ₽</div>
+                    <ul>
+                        <li>До 1 дня съёмок</li>
+                        <li>Монтаж до 3 минут</li>
+                        <li>Цветокоррекция</li>
+                        <li>1 версия ролика</li>
+                    </ul>
+                    <a href="#contacts" class="cta-button">Заказать</a>
+                </div>
+                
+                <div class="price-plan">
+                    <h3>Стандарт</h3>
+                    <p>Комплексное решение для большинства бизнес-задач</p>
+                    <div class="price">от 50 000 ₽</div>
+                    <ul>
+                        <li>До 2 дней съёмок</li>
+                        <li>Монтаж до 5 минут</li>
+                        <li>Цветокоррекция и базовая графика</li>
+                        <li>2 версии ролика</li>
+                    </ul>
+                    <a href="#contacts" class="cta-button">Заказать</a>
+                </div>
+                
+                <div class="price-plan">
+                    <h3>Premium</h3>
+                    <p>Максимальный результат для крупных проектов</p>
+                    <div class="price">от 100 000 ₽</div>
+                    <ul>
+                        <li>Неограниченное количество съёмочных дней</li>
+                        <li>Полный комплекс работ</li>
+                        <li>Сложная графика и анимация</li>
+                        <li>Неограниченное количество правок</li>
+                    </ul>
+                    <a href="#contacts" class="cta-button">Заказать</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Портфолио -->
+    <section id="portfolio">
+        <div class="container">
+            <h2>Портфолио</h2>
+            
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">Все работы</button>
+                <button class="filter-btn" data-filter="corporate">Корпоративные</button>
+                <button class="filter-btn" data-filter="commercial">Рекламные</button>
+                <button class="filter-btn" data-filter="events">Мероприятия</button>
+                <button class="filter-btn" data-filter="social">Соцсети</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <!-- Пример элемента портфолио -->
+                <div class="portfolio-item" data-category="corporate">
+                    <img src="https://via.placeholder.com/600x400" alt="Пример работы">
+                    <div class="item-overlay">
+                        <h3>Корпоративный фильм для ООО "ТехноПром"</h3>
+                        <p>Сняли презентационный ролик, который помог увеличить количество партнеров на 40%</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="commercial">
+                    <img src="https://via.placeholder.com/600x400" alt="Пример работы">
+                    <div class="item-overlay">
+                        <h3>Рекламный ролик для кафе "Уют"</h3>
+                        <p>Видео для YouTube, которое привлекло более 200 новых клиентов за первый месяц</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="events">
+                    <img src="https://via.placeholder.com/600x400" alt="Пример работы">
+                    <div class="item-overlay">
+                        <h3>Съёмка конференции "Бизнес-Инновации 2023"</h3>
+                        <p>Полный охват мероприятия для онлайн-трансляции и последующего использования</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="social">
+                    <img src="https://via.placeholder.com/600x400" alt="Пример работы">
+                    <div class="item-overlay">
+                        <h3>Вертикальные видео для сети фитнес-клубов</h3>
+                        <p>Серия роликов для Instagram Reels, увеличивших вовлеченность на 65%</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="corporate">
+                    <img src="https://via.placeholder.com/600x400" alt="Пример работы">
+                    <div class="item-overlay">
+                        <h3>Интервью с основателем IT-компании</h3>
+                        <p>Мотивационный контент для внутреннего использования и соцсетей</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="commercial">
+                    <img src="https://via.placeholder.com/600x400" alt="Пример работы">
+                    <div class="item-overlay">
+                        <h3>Рекламная кампания для нового ЖК</h3>
+                        <p>Серия видео, способствовавших продаже 70% apartments в первый месяц</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О себе -->
+    <section id="about">
+        <div class="container">
+            <h2>О себе</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/500x600" alt="Фотограф-видеограф">
+                </div>
+                <div class="about-text">
+                    <p>Меня зовут [Имя Фамилия], я профессиональный видеограф с более чем 7-летним опытом создания видео для бизнеса в Санкт-Петербурге.</p>
+                    <p>Начал свой путь в 2016 году и с тех пор помог более 100 компаниям создать compelling video content, который решает их бизнес-задачи.</p>
+                    <p>Специализируюсь на коммерческой съемке, где важен не только эстетический результат, но и измеримая эффективность видео.</p>
+                    
+                    <h3>Техническая база</h3>
+                    <div class="tech-list">
+                        <p>Камеры: Sony FX6, Blackmagic URSA Mini Pro, Sony A7SIII</p>
+                        <p>Объективы: серия Canon EF, Sony G Master</p>
+                        <p>Свет: Aputure, Godox, Profoto</p>
+                        <p>Звук: Rode, Sennheiser, Zoom</p>
+                        <p>Программы: Adobe Premiere Pro, After Effects, DaVinci Resolve</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Этапы работы -->
+    <section id="process">
+        <div class="container">
+            <h2>Этапы работы</h2>
+            <div class="work-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Заявка</h3>
+                        <p>Вы оставляете заявку через сайт или по телефону, мы связываемся с вами в течение 2 часов</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Бриф / обсуждение</h3>
+                        <p>Подробно обсуждаем ваши задачи, цели и желаемый результат</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Смета и договор</h3>
+                        <p>Подготавливаем детальную смету и заключаем договор</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Съёмка</h3>
+                        <p>Проводим съемочный процесс согласно утвержденному плану</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Монтаж</h3>
+                        <p>Монтируем видео, добавляем графику, цветокоррекцию и звуковое оформление</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h3>Передача материалов</h3>
+                        <p>Предоставляем готовые материалы в согласованных форматах</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">7</div>
+                    <div class="step-content">
+                        <h3>Поддержка и доработки</h3>
+                        <p>Обеспечиваем поддержку и вносим правки согласно договору</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section id="testimonials">
+        <div class="container">
+            <h2>Отзывы</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p>"Работали с [Имя] над корпоративным фильмом. Результат превзошел ожидания! Видео точно отражает ценности нашей компании и уже привлекло новых партнеров."</p>
+                    <p class="client-name">— Мария Иванова, директор по маркетингу ООО "ТехноПром"</p>
+                </div>
+                
+                <div class="testimonial">
+                    <p>"Заказали серию рекламных роликов для запуска нового продукта. Ролики оказались очень эффективными - конверсия выросла на 35% по сравнению с предыдущей кампанией."</p>
+                    <p class="client-name">— Алексей Петров, основатель стартапа "Innovate"</p>
+                </div>
+                
+                <div class="testimonial">
+                    <p>"Снимали конференцию с привлечением [Имя]. Очень профессиональная работа в сжатые сроки. Материал смонтирован качественно и передан точно в оговоренные сроки."</p>
+                    <p class="client-name">— Ольга Сидорова, event-менеджер "BusinessForum SPb"</p>
+                </div>
+            </div>
+            
+            <div class="client-logos">
+                <img src="https://via.placeholder.com/150x80" alt="Логотип клиента" class="client-logo">
+                <img src="https://via.placeholder.com/150x80" alt="Логотип клиента" class="client-logo">
+                <img src="https://via.placeholder.com/150x80" alt="Логотип клиента" class="client-logo">
+                <img src="https://via.placeholder.com/150x80" alt="Логотип клиента" class="client-logo">
+                <img src="https://via.placeholder.com/150x80" alt="Логотип клиента" class="client-logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Блог -->
+    <section id="blog">
+        <div class="container">
+            <h2>Полезные статьи</h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <img src="https://via.placeholder.com/400x200" alt="Изображение статьи">
+                    <div class="blog-content">
+                        <h3>Как бизнесу использовать видео для продаж</h3>
+                        <p>Практические советы по интеграции видео в вашу маркетинговую стратегию</p>
+                        <a href="#" class="cta-button">Читать</a>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <img src="https://via.placeholder.com/400x200" alt="Изображение статьи">
+                    <div class="blog-content">
+                        <h3>Советы по подготовке к интервью/съёмке</h3>
+                        <p>Как подготовиться к съемке, чтобы получить максимальный результат</p>
+                        <a href="#" class="cta-button">Читать</a>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <img src="https://via.placeholder.com/400x200" alt="Изображение статьи">
+                    <div class="blog-content">
+                        <h3>Кейс: После ролика для компании N увеличились заявки на 30%</h3>
+                        <p>Реальный пример эффективности видео для бизнеса</p>
+                        <a href="#" class="cta-button">Читать</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contacts">
+        <div class="container">
+            <h2>Контакты</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Свяжитесь со мной</h3>
+                    <p>Готов обсудить ваш проект и ответить на все вопросы</p>
+                    
+                    <p>Телефон: <a href="tel:+78121234567">+7 (812) 123-45-67</a></p>
+                    <p>Email: <a href="mailto:info@videopropspb.ru">info@videopropspb.ru</a></p>
+                    <p>Адрес: Санкт-Петербург, Невский проспект, 100</p>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link">VK</a>
+                        <a href="#" class="social-link">TG</a>
+                        <a href="#" class="social-link">YT</a>
+                        <a href="#" class="social-link">IG</a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Оставить заявку</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Имя</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Телефон</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Задача/проект</label>
+                            <textarea id="message" rows="4" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="cta-button">Отправить заявку</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA секция -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Готовы создать эффективное видео для вашего бизнеса?</h2>
+            <p>Оставьте заявку и получите индивидуальное коммерческое предложение в течение 15 минут</p>
+            <div class="cta-buttons">
+                <a href="#contacts" class="cta-button">Обсудить проект</a>
+                <a href="#contacts" class="cta-button">Получить смету за 15 минут</a>
+                <a href="#contacts" class="cta-button">Узнать цену на ваш проект</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <p>© 2023 VIDEOPROSPB — профессиональная видеосъемка для бизнеса в Санкт-Петербурге</p>
+        </div>
+    </footer>
+
+    <script>
+        // Фильтрация портфолио
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Активная кнопка
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Фильтрация элементов
+                    portfolioItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Плавная прокрутка
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
